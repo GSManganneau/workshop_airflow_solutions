@@ -1,0 +1,19 @@
+[2018-09-03 11:25:25,342] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 11:25:25,358] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.get_data_from_api 2018-09-03 09:25:21.474522 [queued]>
+[2018-09-03 11:25:25,361] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.get_data_from_api 2018-09-03 09:25:21.474522 [queued]>
+[2018-09-03 11:25:25,361] {models.py:1407} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+
+[2018-09-03 11:25:25,366] {models.py:1428} INFO - Executing <Task(SimpleHttpOperator): get_data_from_api> on 2018-09-03 09:25:21.474522
+[2018-09-03 11:25:25,366] {base_task_runner.py:115} INFO - Running: ['bash', '-c', 'airflow run workshop_airflow_exo_1 get_data_from_api 2018-09-03T09:25:21.474522 --job_id 4 --raw -sd DAGS_FOLDER/exo1.py']
+[2018-09-03 11:25:26,135] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:25:26,135] {__init__.py:45} INFO - Using executor SequentialExecutor
+[2018-09-03 11:25:26,190] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:25:26,190] {models.py:189} INFO - Filling up the DagBag from /Users/magus/PycharmProjects/workshop_airflow/dags/exo1.py
+[2018-09-03 11:25:26,330] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 11:25:26,344] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:25:26,344] {http_operator.py:77} INFO - Calling HTTP method
+[2018-09-03 11:25:26,349] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:25:26,349] {base_hook.py:80} INFO - Using connection to: https://api.navitia.io/v1/coverage/fr-idf/
+[2018-09-03 11:25:26,353] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:25:26,353] {http_hook.py:85} INFO - Sending 'GET' to url: https://api.navitia.io/v1/coverage/fr-idf/journeys?from=2.2728894%3B48.8812988&to=2.2950275%3B48.8737917&
+[2018-09-03 11:25:26,575] {logging_mixin.py:84} WARNING - /Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connectionpool.py:857: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+

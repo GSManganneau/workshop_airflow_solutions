@@ -1,0 +1,127 @@
+[2018-09-03 11:30:39,357] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 11:30:39,375] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.get_data_from_api 2018-09-03 09:30:31.576317 [queued]>
+[2018-09-03 11:30:39,378] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.get_data_from_api 2018-09-03 09:30:31.576317 [queued]>
+[2018-09-03 11:30:39,378] {models.py:1407} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+
+[2018-09-03 11:30:39,387] {models.py:1428} INFO - Executing <Task(SimpleHttpOperator): get_data_from_api> on 2018-09-03 09:30:31.576317
+[2018-09-03 11:30:39,387] {base_task_runner.py:115} INFO - Running: ['bash', '-c', 'airflow run workshop_airflow_exo_1 get_data_from_api 2018-09-03T09:30:31.576317 --job_id 9 --raw -sd DAGS_FOLDER/exo1.py']
+[2018-09-03 11:30:40,040] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:30:40,040] {__init__.py:45} INFO - Using executor SequentialExecutor
+[2018-09-03 11:30:40,083] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:30:40,083] {models.py:189} INFO - Filling up the DagBag from /Users/magus/PycharmProjects/workshop_airflow/dags/exo1.py
+[2018-09-03 11:30:40,168] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 11:30:40,178] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:30:40,178] {http_operator.py:77} INFO - Calling HTTP method
+[2018-09-03 11:30:40,181] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:30:40,181] {base_hook.py:80} INFO - Using connection to: https://api.navitia.io/v1/coverage/fr-idf/
+[2018-09-03 11:30:40,185] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:30:40,185] {http_hook.py:85} INFO - Sending 'GET' to url: https://api.navitia.io/v1/coverage/fr-idf/journeys?from=2.2728894%3B48.8812988&to=2.2950275%3B48.8737917&
+[2018-09-03 11:31:10,191] {models.py:1595} ERROR - HTTPSConnectionPool(host='api.navitia.io', port=443): Max retries exceeded with url: /v1/coverage/fr-idf/journeys?from=2.2728894%3B48.8812988&to=2.2950275%3B48.8737917& (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10d1942e8>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known',))
+Traceback (most recent call last):
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connection.py", line 171, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/util/connection.py", line 56, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connectionpool.py", line 849, in _validate_conn
+    conn.connect()
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connection.py", line 314, in connect
+    conn = self._new_conn()
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connection.py", line 180, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10d1942e8>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/requests/adapters.py", line 445, in send
+    timeout=timeout
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.navitia.io', port=443): Max retries exceeded with url: /v1/coverage/fr-idf/journeys?from=2.2728894%3B48.8812988&to=2.2950275%3B48.8737917& (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10d1942e8>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/http_operator.py", line 82, in execute
+    self.extra_options)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/hooks/http_hook.py", line 86, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/hooks/http_hook.py", line 102, in run_and_check
+    allow_redirects=extra_options.get("allow_redirects", True))
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/requests/sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/requests/adapters.py", line 513, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.navitia.io', port=443): Max retries exceeded with url: /v1/coverage/fr-idf/journeys?from=2.2728894%3B48.8812988&to=2.2950275%3B48.8737917& (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10d1942e8>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known',))
+[2018-09-03 11:31:10,201] {models.py:1624} INFO - Marking task as FAILED.
+[2018-09-03 11:31:10,209] {models.py:1644} ERROR - HTTPSConnectionPool(host='api.navitia.io', port=443): Max retries exceeded with url: /v1/coverage/fr-idf/journeys?from=2.2728894%3B48.8812988&to=2.2950275%3B48.8737917& (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10d1942e8>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known',))
+[2018-09-03 11:31:10,222] {base_task_runner.py:98} INFO - Subtask: Traceback (most recent call last):
+[2018-09-03 11:31:10,222] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connection.py", line 171, in _new_conn
+[2018-09-03 11:31:10,222] {base_task_runner.py:98} INFO - Subtask:     (self._dns_host, self.port), self.timeout, **extra_kw)
+[2018-09-03 11:31:10,222] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/util/connection.py", line 56, in create_connection
+[2018-09-03 11:31:10,222] {base_task_runner.py:98} INFO - Subtask:     for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+[2018-09-03 11:31:10,223] {base_task_runner.py:98} INFO - Subtask:   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/socket.py", line 745, in getaddrinfo
+[2018-09-03 11:31:10,223] {base_task_runner.py:98} INFO - Subtask:     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+[2018-09-03 11:31:10,242] {base_task_runner.py:98} INFO - Subtask: socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+[2018-09-03 11:31:10,242] {base_task_runner.py:98} INFO - Subtask: 
+[2018-09-03 11:31:10,242] {base_task_runner.py:98} INFO - Subtask: During handling of the above exception, another exception occurred:
+[2018-09-03 11:31:10,243] {base_task_runner.py:98} INFO - Subtask: 
+[2018-09-03 11:31:10,243] {base_task_runner.py:98} INFO - Subtask: Traceback (most recent call last):
+[2018-09-03 11:31:10,243] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+[2018-09-03 11:31:10,243] {base_task_runner.py:98} INFO - Subtask:     chunked=chunked)
+[2018-09-03 11:31:10,243] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+[2018-09-03 11:31:10,247] {base_task_runner.py:98} INFO - Subtask:     self._validate_conn(conn)
+[2018-09-03 11:31:10,247] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connectionpool.py", line 849, in _validate_conn
+[2018-09-03 11:31:10,247] {base_task_runner.py:98} INFO - Subtask:     conn.connect()
+[2018-09-03 11:31:10,247] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connection.py", line 314, in connect
+[2018-09-03 11:31:10,247] {base_task_runner.py:98} INFO - Subtask:     conn = self._new_conn()
+[2018-09-03 11:31:10,247] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connection.py", line 180, in _new_conn
+[2018-09-03 11:31:10,247] {base_task_runner.py:98} INFO - Subtask:     self, "Failed to establish a new connection: %s" % e)
+[2018-09-03 11:31:10,248] {base_task_runner.py:98} INFO - Subtask: urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10d1942e8>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known
+[2018-09-03 11:31:10,248] {base_task_runner.py:98} INFO - Subtask: 
+[2018-09-03 11:31:10,248] {base_task_runner.py:98} INFO - Subtask: During handling of the above exception, another exception occurred:
+[2018-09-03 11:31:10,248] {base_task_runner.py:98} INFO - Subtask: 
+[2018-09-03 11:31:10,248] {base_task_runner.py:98} INFO - Subtask: Traceback (most recent call last):
+[2018-09-03 11:31:10,248] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/requests/adapters.py", line 445, in send
+[2018-09-03 11:31:10,248] {base_task_runner.py:98} INFO - Subtask:     timeout=timeout
+[2018-09-03 11:31:10,248] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+[2018-09-03 11:31:10,248] {base_task_runner.py:98} INFO - Subtask:     _stacktrace=sys.exc_info()[2])
+[2018-09-03 11:31:10,249] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/util/retry.py", line 398, in increment
+[2018-09-03 11:31:10,249] {base_task_runner.py:98} INFO - Subtask:     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+[2018-09-03 11:31:10,249] {base_task_runner.py:98} INFO - Subtask: urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.navitia.io', port=443): Max retries exceeded with url: /v1/coverage/fr-idf/journeys?from=2.2728894%3B48.8812988&to=2.2950275%3B48.8737917& (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10d1942e8>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known',))
+[2018-09-03 11:31:10,249] {base_task_runner.py:98} INFO - Subtask: 
+[2018-09-03 11:31:10,249] {base_task_runner.py:98} INFO - Subtask: During handling of the above exception, another exception occurred:
+[2018-09-03 11:31:10,250] {base_task_runner.py:98} INFO - Subtask: 
+[2018-09-03 11:31:10,251] {base_task_runner.py:98} INFO - Subtask: Traceback (most recent call last):
+[2018-09-03 11:31:10,251] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/bin/airflow", line 27, in <module>
+[2018-09-03 11:31:10,251] {base_task_runner.py:98} INFO - Subtask:     args.func(args)
+[2018-09-03 11:31:10,251] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/bin/cli.py", line 392, in run
+[2018-09-03 11:31:10,251] {base_task_runner.py:98} INFO - Subtask:     pool=args.pool,
+[2018-09-03 11:31:10,251] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/db.py", line 50, in wrapper
+[2018-09-03 11:31:10,251] {base_task_runner.py:98} INFO - Subtask:     result = func(*args, **kwargs)
+[2018-09-03 11:31:10,251] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+[2018-09-03 11:31:10,251] {base_task_runner.py:98} INFO - Subtask:     result = task_copy.execute(context=context)
+[2018-09-03 11:31:10,251] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/http_operator.py", line 82, in execute
+[2018-09-03 11:31:10,252] {base_task_runner.py:98} INFO - Subtask:     self.extra_options)
+[2018-09-03 11:31:10,252] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/hooks/http_hook.py", line 86, in run
+[2018-09-03 11:31:10,252] {base_task_runner.py:98} INFO - Subtask:     return self.run_and_check(session, prepped_request, extra_options)
+[2018-09-03 11:31:10,252] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/hooks/http_hook.py", line 102, in run_and_check
+[2018-09-03 11:31:10,252] {base_task_runner.py:98} INFO - Subtask:     allow_redirects=extra_options.get("allow_redirects", True))
+[2018-09-03 11:31:10,252] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/requests/sessions.py", line 622, in send
+[2018-09-03 11:31:10,252] {base_task_runner.py:98} INFO - Subtask:     r = adapter.send(request, **kwargs)
+[2018-09-03 11:31:10,252] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/requests/adapters.py", line 513, in send
+[2018-09-03 11:31:10,252] {base_task_runner.py:98} INFO - Subtask:     raise ConnectionError(e, request=request)
+[2018-09-03 11:31:10,252] {base_task_runner.py:98} INFO - Subtask: requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.navitia.io', port=443): Max retries exceeded with url: /v1/coverage/fr-idf/journeys?from=2.2728894%3B48.8812988&to=2.2950275%3B48.8737917& (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10d1942e8>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known',))

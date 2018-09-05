@@ -1,0 +1,42 @@
+[2018-09-03 11:25:35,260] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 11:25:35,277] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.parse_json 2018-09-03 09:25:21.474522 [queued]>
+[2018-09-03 11:25:35,284] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.parse_json 2018-09-03 09:25:21.474522 [queued]>
+[2018-09-03 11:25:35,285] {models.py:1407} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+
+[2018-09-03 11:25:35,292] {models.py:1428} INFO - Executing <Task(PythonOperator): parse_json> on 2018-09-03 09:25:21.474522
+[2018-09-03 11:25:35,292] {base_task_runner.py:115} INFO - Running: ['bash', '-c', 'airflow run workshop_airflow_exo_1 parse_json 2018-09-03T09:25:21.474522 --job_id 5 --raw -sd DAGS_FOLDER/exo1.py']
+[2018-09-03 11:25:36,053] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:25:36,052] {__init__.py:45} INFO - Using executor SequentialExecutor
+[2018-09-03 11:25:36,121] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:25:36,121] {models.py:189} INFO - Filling up the DagBag from /Users/magus/PycharmProjects/workshop_airflow/dags/exo1.py
+[2018-09-03 11:25:36,215] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 11:25:36,226] {models.py:1595} ERROR - module 'datetime' has no attribute 'strptime'
+Traceback (most recent call last):
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 89, in execute
+    return_value = self.execute_callable()
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 94, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/Users/magus/PycharmProjects/workshop_airflow/utils/parsing.py", line 7, in parse_data_from_api
+    departure_time = datetime.strptime(response_json['journeys'][0]['requested_date_time'], '%Y%m%dT%H%M%S')
+AttributeError: module 'datetime' has no attribute 'strptime'
+[2018-09-03 11:25:36,230] {models.py:1624} INFO - Marking task as FAILED.
+[2018-09-03 11:25:36,238] {models.py:1644} ERROR - module 'datetime' has no attribute 'strptime'
+[2018-09-03 11:25:36,240] {base_task_runner.py:98} INFO - Subtask: Traceback (most recent call last):
+[2018-09-03 11:25:36,240] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/bin/airflow", line 27, in <module>
+[2018-09-03 11:25:36,240] {base_task_runner.py:98} INFO - Subtask:     args.func(args)
+[2018-09-03 11:25:36,240] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/bin/cli.py", line 392, in run
+[2018-09-03 11:25:36,240] {base_task_runner.py:98} INFO - Subtask:     pool=args.pool,
+[2018-09-03 11:25:36,240] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/db.py", line 50, in wrapper
+[2018-09-03 11:25:36,241] {base_task_runner.py:98} INFO - Subtask:     result = func(*args, **kwargs)
+[2018-09-03 11:25:36,241] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+[2018-09-03 11:25:36,241] {base_task_runner.py:98} INFO - Subtask:     result = task_copy.execute(context=context)
+[2018-09-03 11:25:36,241] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 89, in execute
+[2018-09-03 11:25:36,241] {base_task_runner.py:98} INFO - Subtask:     return_value = self.execute_callable()
+[2018-09-03 11:25:36,241] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 94, in execute_callable
+[2018-09-03 11:25:36,241] {base_task_runner.py:98} INFO - Subtask:     return self.python_callable(*self.op_args, **self.op_kwargs)
+[2018-09-03 11:25:36,241] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/utils/parsing.py", line 7, in parse_data_from_api
+[2018-09-03 11:25:36,242] {base_task_runner.py:98} INFO - Subtask:     departure_time = datetime.strptime(response_json['journeys'][0]['requested_date_time'], '%Y%m%dT%H%M%S')
+[2018-09-03 11:25:36,242] {base_task_runner.py:98} INFO - Subtask: AttributeError: module 'datetime' has no attribute 'strptime'

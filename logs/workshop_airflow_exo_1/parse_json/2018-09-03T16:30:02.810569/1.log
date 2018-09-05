@@ -1,0 +1,21 @@
+[2018-09-03 18:30:19,065] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 18:30:19,087] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.parse_json 2018-09-03 16:30:02.810569 [queued]>
+[2018-09-03 18:30:19,093] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.parse_json 2018-09-03 16:30:02.810569 [queued]>
+[2018-09-03 18:30:19,093] {models.py:1407} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+
+[2018-09-03 18:30:19,100] {models.py:1428} INFO - Executing <Task(PythonOperator): parse_json> on 2018-09-03 16:30:02.810569
+[2018-09-03 18:30:19,100] {base_task_runner.py:115} INFO - Running: ['bash', '-c', 'airflow run workshop_airflow_exo_1 parse_json 2018-09-03T16:30:02.810569 --job_id 225 --raw -sd DAGS_FOLDER/exo1.py']
+[2018-09-03 18:30:19,642] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 18:30:19,641] {__init__.py:45} INFO - Using executor SequentialExecutor
+[2018-09-03 18:30:19,698] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 18:30:19,698] {models.py:189} INFO - Filling up the DagBag from /Users/magus/PycharmProjects/workshop_airflow/dags/exo1.py
+[2018-09-03 18:30:19,780] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 18:30:19,798] {logging_mixin.py:84} INFO - itinerary Departure time : 2018-09-03 18:30:09
+68 secondes 58 Avenue Charles de Gaulle (Neuilly-sur-Seine) Les Sablons (Jardin d'Acclimatation) (Neuilly-sur-Seine) by walking300s Les Sablons (Jardin d'Acclimatation) (Neuilly-sur-Seine) Charles de Gaulle-Etoile (Paris) by METRO 1 direction Château de Vincennes (Paris)36 secondes Charles de Gaulle-Etoile (Paris) Passage du Souvenir (Paris) by walkingArrival time : 2018-09-03 18:37:36
+Departure time : 2018-09-03 18:30:09
+1966 secondes 58 Avenue Charles de Gaulle (Neuilly-sur-Seine) Passage du Souvenir (Paris) by walkingArrival time : 2018-09-03 19:02:55
+
+[2018-09-03 18:30:19,798] {logging_mixin.py:84} INFO - 
+
+[2018-09-03 18:30:19,803] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 18:30:19,802] {python_operator.py:90} INFO - Done. Returned value was: None

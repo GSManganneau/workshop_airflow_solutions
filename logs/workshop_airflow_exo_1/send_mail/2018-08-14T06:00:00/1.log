@@ -1,0 +1,14 @@
+[2018-09-03 11:44:30,813] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 11:44:30,828] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.send_mail 2018-08-14 06:00:00 [queued]>
+[2018-09-03 11:44:30,831] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.send_mail 2018-08-14 06:00:00 [queued]>
+[2018-09-03 11:44:30,831] {models.py:1407} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+
+[2018-09-03 11:44:30,837] {models.py:1428} INFO - Executing <Task(EmailOperator): send_mail> on 2018-08-14 06:00:00
+[2018-09-03 11:44:30,837] {base_task_runner.py:115} INFO - Running: ['bash', '-c', 'airflow run workshop_airflow_exo_1 send_mail 2018-08-14T06:00:00 --job_id 61 --raw -sd DAGS_FOLDER/exo1.py']
+[2018-09-03 11:44:31,410] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:44:31,409] {__init__.py:45} INFO - Using executor SequentialExecutor
+[2018-09-03 11:44:31,460] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:44:31,460] {models.py:189} INFO - Filling up the DagBag from /Users/magus/PycharmProjects/workshop_airflow/dags/exo1.py
+[2018-09-03 11:44:31,534] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 11:44:31,676] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:44:31,676] {email.py:112} INFO - Sent an alert email to ['guy-stephane.manganneau@openvalue.fr']

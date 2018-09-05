@@ -1,0 +1,67 @@
+[2018-09-03 17:59:51,526] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 17:59:51,541] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.get_data_from_api 2018-09-03 15:59:45.058823 [queued]>
+[2018-09-03 17:59:51,543] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.get_data_from_api 2018-09-03 15:59:45.058823 [queued]>
+[2018-09-03 17:59:51,543] {models.py:1407} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+
+[2018-09-03 17:59:51,549] {models.py:1428} INFO - Executing <Task(SimpleHttpOperator): get_data_from_api> on 2018-09-03 15:59:45.058823
+[2018-09-03 17:59:51,549] {base_task_runner.py:115} INFO - Running: ['bash', '-c', 'airflow run workshop_airflow_exo_1 get_data_from_api 2018-09-03T15:59:45.058823 --job_id 204 --raw -sd DAGS_FOLDER/exo1.py']
+[2018-09-03 17:59:52,090] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 17:59:52,089] {__init__.py:45} INFO - Using executor SequentialExecutor
+[2018-09-03 17:59:52,134] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 17:59:52,133] {models.py:189} INFO - Filling up the DagBag from /Users/magus/PycharmProjects/workshop_airflow/dags/exo1.py
+[2018-09-03 17:59:52,205] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 17:59:52,218] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 17:59:52,218] {http_operator.py:77} INFO - Calling HTTP method
+[2018-09-03 17:59:52,220] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 17:59:52,220] {base_hook.py:80} INFO - Using connection to: https://api.navitia.io/v1/coverage/fr-idf/
+[2018-09-03 17:59:52,229] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 17:59:52,229] {http_hook.py:85} INFO - Sending 'GET' to url: https://api.navitia.io/v1/coverage/fr-idf/journeys?from=2.2728894%3B48.8812988&to=2.2950275itineraire Departure time%3B48.8737917&
+[2018-09-03 17:59:52,284] {logging_mixin.py:84} WARNING - /Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/urllib3/connectionpool.py:857: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+
+[2018-09-03 17:59:52,356] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 17:59:52,356] {http_hook.py:110} ERROR - HTTP error: NOT FOUND
+[2018-09-03 17:59:52,361] {models.py:1595} ERROR - 404:NOT FOUND
+Traceback (most recent call last):
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/hooks/http_hook.py", line 105, in run_and_check
+    response.raise_for_status()
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/requests/models.py", line 939, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: NOT FOUND for url: https://api.navitia.io/v1/coverage/fr-idf/journeys?from=2.2728894%3B48.8812988&to=2.2950275itineraire%20Departure%20time%3B48.8737917&
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/http_operator.py", line 82, in execute
+    self.extra_options)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/hooks/http_hook.py", line 86, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/hooks/http_hook.py", line 117, in run_and_check
+    raise AirflowException(str(response.status_code)+":"+response.reason)
+airflow.exceptions.AirflowException: 404:NOT FOUND
+[2018-09-03 17:59:52,373] {models.py:1624} INFO - Marking task as FAILED.
+[2018-09-03 17:59:52,380] {models.py:1644} ERROR - 404:NOT FOUND
+[2018-09-03 17:59:52,383] {base_task_runner.py:98} INFO - Subtask: Traceback (most recent call last):
+[2018-09-03 17:59:52,383] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/hooks/http_hook.py", line 105, in run_and_check
+[2018-09-03 17:59:52,384] {base_task_runner.py:98} INFO - Subtask:     response.raise_for_status()
+[2018-09-03 17:59:52,384] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/requests/models.py", line 939, in raise_for_status
+[2018-09-03 17:59:52,384] {base_task_runner.py:98} INFO - Subtask:     raise HTTPError(http_error_msg, response=self)
+[2018-09-03 17:59:52,384] {base_task_runner.py:98} INFO - Subtask: requests.exceptions.HTTPError: 404 Client Error: NOT FOUND for url: https://api.navitia.io/v1/coverage/fr-idf/journeys?from=2.2728894%3B48.8812988&to=2.2950275itineraire%20Departure%20time%3B48.8737917&
+[2018-09-03 17:59:52,384] {base_task_runner.py:98} INFO - Subtask: 
+[2018-09-03 17:59:52,384] {base_task_runner.py:98} INFO - Subtask: During handling of the above exception, another exception occurred:
+[2018-09-03 17:59:52,384] {base_task_runner.py:98} INFO - Subtask: 
+[2018-09-03 17:59:52,384] {base_task_runner.py:98} INFO - Subtask: Traceback (most recent call last):
+[2018-09-03 17:59:52,385] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/bin/airflow", line 27, in <module>
+[2018-09-03 17:59:52,385] {base_task_runner.py:98} INFO - Subtask:     args.func(args)
+[2018-09-03 17:59:52,385] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/bin/cli.py", line 392, in run
+[2018-09-03 17:59:52,385] {base_task_runner.py:98} INFO - Subtask:     pool=args.pool,
+[2018-09-03 17:59:52,385] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/db.py", line 50, in wrapper
+[2018-09-03 17:59:52,385] {base_task_runner.py:98} INFO - Subtask:     result = func(*args, **kwargs)
+[2018-09-03 17:59:52,385] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+[2018-09-03 17:59:52,385] {base_task_runner.py:98} INFO - Subtask:     result = task_copy.execute(context=context)
+[2018-09-03 17:59:52,385] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/http_operator.py", line 82, in execute
+[2018-09-03 17:59:52,385] {base_task_runner.py:98} INFO - Subtask:     self.extra_options)
+[2018-09-03 17:59:52,386] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/hooks/http_hook.py", line 86, in run
+[2018-09-03 17:59:52,386] {base_task_runner.py:98} INFO - Subtask:     return self.run_and_check(session, prepped_request, extra_options)
+[2018-09-03 17:59:52,386] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/hooks/http_hook.py", line 117, in run_and_check
+[2018-09-03 17:59:52,386] {base_task_runner.py:98} INFO - Subtask:     raise AirflowException(str(response.status_code)+":"+response.reason)
+[2018-09-03 17:59:52,386] {base_task_runner.py:98} INFO - Subtask: airflow.exceptions.AirflowException: 404:NOT FOUND

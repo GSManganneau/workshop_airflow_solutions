@@ -1,0 +1,67 @@
+[2018-09-03 11:28:33,826] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 11:28:33,885] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.send_mail 2018-09-03 09:28:08.795529 [queued]>
+[2018-09-03 11:28:33,894] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.send_mail 2018-09-03 09:28:08.795529 [queued]>
+[2018-09-03 11:28:33,894] {models.py:1407} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+
+[2018-09-03 11:28:33,906] {models.py:1428} INFO - Executing <Task(EmailOperator): send_mail> on 2018-09-03 09:28:08.795529
+[2018-09-03 11:28:33,907] {base_task_runner.py:115} INFO - Running: ['bash', '-c', 'airflow run workshop_airflow_exo_1 send_mail 2018-09-03T09:28:08.795529 --job_id 8 --raw -sd DAGS_FOLDER/exo1.py']
+[2018-09-03 11:28:34,554] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:28:34,553] {__init__.py:45} INFO - Using executor SequentialExecutor
+[2018-09-03 11:28:34,593] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:28:34,593] {models.py:189} INFO - Filling up the DagBag from /Users/magus/PycharmProjects/workshop_airflow/dags/exo1.py
+[2018-09-03 11:28:34,668] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 11:28:34,680] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 11:28:34,680] {configuration.py:206} WARNING - section/key [smtp/smtp_user] not found in config
+[2018-09-03 11:28:34,682] {models.py:1595} ERROR - [Errno 61] Connection refused
+Traceback (most recent call last):
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/email_operator.py", line 64, in execute
+    send_email(self.to, self.subject, self.html_content, files=self.files, cc=self.cc, bcc=self.bcc, mime_subtype=self.mime_subtype)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/email.py", line 44, in send_email
+    return backend(to, subject, html_content, files=files, dryrun=dryrun, cc=cc, bcc=bcc, mime_subtype=mime_subtype)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/email.py", line 87, in send_email_smtp
+    send_MIME_email(SMTP_MAIL_FROM, recipients, msg, dryrun)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/email.py", line 107, in send_MIME_email
+    s = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) if SMTP_SSL else smtplib.SMTP(SMTP_HOST, SMTP_PORT)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/socket.py", line 724, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/socket.py", line 713, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+[2018-09-03 11:28:34,686] {models.py:1624} INFO - Marking task as FAILED.
+[2018-09-03 11:28:34,694] {models.py:1644} ERROR - [Errno 61] Connection refused
+[2018-09-03 11:28:34,697] {base_task_runner.py:98} INFO - Subtask: Traceback (most recent call last):
+[2018-09-03 11:28:34,697] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/bin/airflow", line 27, in <module>
+[2018-09-03 11:28:34,697] {base_task_runner.py:98} INFO - Subtask:     args.func(args)
+[2018-09-03 11:28:34,697] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/bin/cli.py", line 392, in run
+[2018-09-03 11:28:34,697] {base_task_runner.py:98} INFO - Subtask:     pool=args.pool,
+[2018-09-03 11:28:34,698] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/db.py", line 50, in wrapper
+[2018-09-03 11:28:34,698] {base_task_runner.py:98} INFO - Subtask:     result = func(*args, **kwargs)
+[2018-09-03 11:28:34,698] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+[2018-09-03 11:28:34,698] {base_task_runner.py:98} INFO - Subtask:     result = task_copy.execute(context=context)
+[2018-09-03 11:28:34,698] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/email_operator.py", line 64, in execute
+[2018-09-03 11:28:34,698] {base_task_runner.py:98} INFO - Subtask:     send_email(self.to, self.subject, self.html_content, files=self.files, cc=self.cc, bcc=self.bcc, mime_subtype=self.mime_subtype)
+[2018-09-03 11:28:34,698] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/email.py", line 44, in send_email
+[2018-09-03 11:28:34,698] {base_task_runner.py:98} INFO - Subtask:     return backend(to, subject, html_content, files=files, dryrun=dryrun, cc=cc, bcc=bcc, mime_subtype=mime_subtype)
+[2018-09-03 11:28:34,699] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/email.py", line 87, in send_email_smtp
+[2018-09-03 11:28:34,699] {base_task_runner.py:98} INFO - Subtask:     send_MIME_email(SMTP_MAIL_FROM, recipients, msg, dryrun)
+[2018-09-03 11:28:34,699] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/email.py", line 107, in send_MIME_email
+[2018-09-03 11:28:34,699] {base_task_runner.py:98} INFO - Subtask:     s = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) if SMTP_SSL else smtplib.SMTP(SMTP_HOST, SMTP_PORT)
+[2018-09-03 11:28:34,699] {base_task_runner.py:98} INFO - Subtask:   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/smtplib.py", line 251, in __init__
+[2018-09-03 11:28:34,699] {base_task_runner.py:98} INFO - Subtask:     (code, msg) = self.connect(host, port)
+[2018-09-03 11:28:34,699] {base_task_runner.py:98} INFO - Subtask:   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/smtplib.py", line 336, in connect
+[2018-09-03 11:28:34,699] {base_task_runner.py:98} INFO - Subtask:     self.sock = self._get_socket(host, port, self.timeout)
+[2018-09-03 11:28:34,699] {base_task_runner.py:98} INFO - Subtask:   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/smtplib.py", line 307, in _get_socket
+[2018-09-03 11:28:34,700] {base_task_runner.py:98} INFO - Subtask:     self.source_address)
+[2018-09-03 11:28:34,700] {base_task_runner.py:98} INFO - Subtask:   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/socket.py", line 724, in create_connection
+[2018-09-03 11:28:34,700] {base_task_runner.py:98} INFO - Subtask:     raise err
+[2018-09-03 11:28:34,700] {base_task_runner.py:98} INFO - Subtask:   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/socket.py", line 713, in create_connection
+[2018-09-03 11:28:34,700] {base_task_runner.py:98} INFO - Subtask:     sock.connect(sa)
+[2018-09-03 11:28:34,700] {base_task_runner.py:98} INFO - Subtask: ConnectionRefusedError: [Errno 61] Connection refused

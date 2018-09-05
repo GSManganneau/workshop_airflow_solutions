@@ -1,0 +1,50 @@
+[2018-09-03 23:06:23,084] {cli.py:374} INFO - Running on host MBPdeMANGANNEAU
+[2018-09-03 23:06:23,100] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.parse_json 2018-09-03 21:06:06.936418 [queued]>
+[2018-09-03 23:06:23,104] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.parse_json 2018-09-03 21:06:06.936418 [queued]>
+[2018-09-03 23:06:23,104] {models.py:1407} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+
+[2018-09-03 23:06:23,109] {models.py:1428} INFO - Executing <Task(PythonOperator): parse_json> on 2018-09-03 21:06:06.936418
+[2018-09-03 23:06:23,110] {base_task_runner.py:115} INFO - Running: ['bash', '-c', 'airflow run workshop_airflow_exo_1 parse_json 2018-09-03T21:06:06.936418 --job_id 234 --raw -sd DAGS_FOLDER/exo1.py']
+[2018-09-03 23:06:23,725] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 23:06:23,724] {__init__.py:45} INFO - Using executor SequentialExecutor
+[2018-09-03 23:06:23,796] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 23:06:23,796] {models.py:189} INFO - Filling up the DagBag from /Users/magus/PycharmProjects/workshop_airflow/dags/exo1.py
+[2018-09-03 23:06:23,881] {cli.py:374} INFO - Running on host MBPdeMANGANNEAU
+[2018-09-03 23:06:23,900] {models.py:1595} ERROR - unconverted data remains: T230614
+Traceback (most recent call last):
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 89, in execute
+    return_value = self.execute_callable()
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 94, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/Users/magus/PycharmProjects/workshop_airflow/utils/parsing.py", line 39, in parse_journey
+    departure_time = datetime.strptime(response_json['journeys'][i]['requested_date_time'], '%Y%m%d')
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/_strptime.py", line 565, in _strptime_datetime
+    tt, fraction = _strptime(data_string, format)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/_strptime.py", line 365, in _strptime
+    data_string[found.end():])
+ValueError: unconverted data remains: T230614
+[2018-09-03 23:06:23,904] {models.py:1624} INFO - Marking task as FAILED.
+[2018-09-03 23:06:23,912] {models.py:1644} ERROR - unconverted data remains: T230614
+[2018-09-03 23:06:23,914] {base_task_runner.py:98} INFO - Subtask: Traceback (most recent call last):
+[2018-09-03 23:06:23,915] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/bin/airflow", line 27, in <module>
+[2018-09-03 23:06:23,915] {base_task_runner.py:98} INFO - Subtask:     args.func(args)
+[2018-09-03 23:06:23,915] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/bin/cli.py", line 392, in run
+[2018-09-03 23:06:23,915] {base_task_runner.py:98} INFO - Subtask:     pool=args.pool,
+[2018-09-03 23:06:23,915] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/db.py", line 50, in wrapper
+[2018-09-03 23:06:23,915] {base_task_runner.py:98} INFO - Subtask:     result = func(*args, **kwargs)
+[2018-09-03 23:06:23,915] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+[2018-09-03 23:06:23,943] {base_task_runner.py:98} INFO - Subtask:     result = task_copy.execute(context=context)
+[2018-09-03 23:06:23,944] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 89, in execute
+[2018-09-03 23:06:23,944] {base_task_runner.py:98} INFO - Subtask:     return_value = self.execute_callable()
+[2018-09-03 23:06:23,944] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 94, in execute_callable
+[2018-09-03 23:06:23,944] {base_task_runner.py:98} INFO - Subtask:     return self.python_callable(*self.op_args, **self.op_kwargs)
+[2018-09-03 23:06:23,944] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/utils/parsing.py", line 39, in parse_journey
+[2018-09-03 23:06:23,944] {base_task_runner.py:98} INFO - Subtask:     departure_time = datetime.strptime(response_json['journeys'][i]['requested_date_time'], '%Y%m%d')
+[2018-09-03 23:06:23,944] {base_task_runner.py:98} INFO - Subtask:   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/_strptime.py", line 565, in _strptime_datetime
+[2018-09-03 23:06:23,945] {base_task_runner.py:98} INFO - Subtask:     tt, fraction = _strptime(data_string, format)
+[2018-09-03 23:06:24,032] {base_task_runner.py:98} INFO - Subtask:   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/_strptime.py", line 365, in _strptime
+[2018-09-03 23:06:24,032] {base_task_runner.py:98} INFO - Subtask:     data_string[found.end():])
+[2018-09-03 23:06:24,032] {base_task_runner.py:98} INFO - Subtask: ValueError: unconverted data remains: T230614

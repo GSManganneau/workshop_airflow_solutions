@@ -1,0 +1,4 @@
+.idea/
+airflow.db
+*.cfg
+workshop_env/

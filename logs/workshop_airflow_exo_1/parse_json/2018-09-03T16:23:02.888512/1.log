@@ -1,0 +1,42 @@
+[2018-09-03 18:23:18,892] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 18:23:18,911] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.parse_json 2018-09-03 16:23:02.888512 [queued]>
+[2018-09-03 18:23:18,917] {models.py:1197} INFO - Dependencies all met for <TaskInstance: workshop_airflow_exo_1.parse_json 2018-09-03 16:23:02.888512 [queued]>
+[2018-09-03 18:23:18,918] {models.py:1407} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+
+[2018-09-03 18:23:18,924] {models.py:1428} INFO - Executing <Task(PythonOperator): parse_json> on 2018-09-03 16:23:02.888512
+[2018-09-03 18:23:18,924] {base_task_runner.py:115} INFO - Running: ['bash', '-c', 'airflow run workshop_airflow_exo_1 parse_json 2018-09-03T16:23:02.888512 --job_id 220 --raw -sd DAGS_FOLDER/exo1.py']
+[2018-09-03 18:23:19,483] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 18:23:19,482] {__init__.py:45} INFO - Using executor SequentialExecutor
+[2018-09-03 18:23:19,537] {base_task_runner.py:98} INFO - Subtask: [2018-09-03 18:23:19,537] {models.py:189} INFO - Filling up the DagBag from /Users/magus/PycharmProjects/workshop_airflow/dags/exo1.py
+[2018-09-03 18:23:19,615] {cli.py:374} INFO - Running on host MacBook-Pro-de-MANGANNEAU.local
+[2018-09-03 18:23:19,630] {models.py:1595} ERROR - must be str, not NoneType
+Traceback (most recent call last):
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 89, in execute
+    return_value = self.execute_callable()
+  File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 94, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/Users/magus/PycharmProjects/workshop_airflow/utils/parsing.py", line 44, in parse_journey
+    itinerary = itinerary + get_section(response_json, i, j)
+TypeError: must be str, not NoneType
+[2018-09-03 18:23:19,632] {models.py:1624} INFO - Marking task as FAILED.
+[2018-09-03 18:23:19,643] {models.py:1644} ERROR - must be str, not NoneType
+[2018-09-03 18:23:19,645] {base_task_runner.py:98} INFO - Subtask: Traceback (most recent call last):
+[2018-09-03 18:23:19,645] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/bin/airflow", line 27, in <module>
+[2018-09-03 18:23:19,645] {base_task_runner.py:98} INFO - Subtask:     args.func(args)
+[2018-09-03 18:23:19,645] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/bin/cli.py", line 392, in run
+[2018-09-03 18:23:19,645] {base_task_runner.py:98} INFO - Subtask:     pool=args.pool,
+[2018-09-03 18:23:19,645] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/utils/db.py", line 50, in wrapper
+[2018-09-03 18:23:19,646] {base_task_runner.py:98} INFO - Subtask:     result = func(*args, **kwargs)
+[2018-09-03 18:23:19,646] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/models.py", line 1493, in _run_raw_task
+[2018-09-03 18:23:19,646] {base_task_runner.py:98} INFO - Subtask:     result = task_copy.execute(context=context)
+[2018-09-03 18:23:19,646] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 89, in execute
+[2018-09-03 18:23:19,646] {base_task_runner.py:98} INFO - Subtask:     return_value = self.execute_callable()
+[2018-09-03 18:23:19,646] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/workshop_env/lib/python3.6/site-packages/airflow/operators/python_operator.py", line 94, in execute_callable
+[2018-09-03 18:23:19,646] {base_task_runner.py:98} INFO - Subtask:     return self.python_callable(*self.op_args, **self.op_kwargs)
+[2018-09-03 18:23:19,646] {base_task_runner.py:98} INFO - Subtask:   File "/Users/magus/PycharmProjects/workshop_airflow/utils/parsing.py", line 44, in parse_journey
+[2018-09-03 18:23:19,646] {base_task_runner.py:98} INFO - Subtask:     itinerary = itinerary + get_section(response_json, i, j)
+[2018-09-03 18:23:19,646] {base_task_runner.py:98} INFO - Subtask: TypeError: must be str, not NoneType
