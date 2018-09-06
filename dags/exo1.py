@@ -1,4 +1,4 @@
-from utils.parsing import parse_journey
+from utils.parsing_apis import parse_journey
 from airflow import DAG
 from airflow.operators.email_operator import EmailOperator
 from airflow.operators.http_operator import SimpleHttpOperator
